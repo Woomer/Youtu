@@ -7,7 +7,7 @@ After=network.target
 [Service]
 User=ubuntu  # Replace with your username
 Group=www-data
-WorkingDirectory=/path/to/Youtu.git  # Path to your Django project root
+WorkingDirectory=/Youtu  # Path to your Django project root
 ExecStart=/Youtu/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/Youtu/core/core.sock core.wsgi:application
 
 [Install]
