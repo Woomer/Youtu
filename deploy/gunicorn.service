@@ -1,15 +1,22 @@
 # Youtu.git/deploy/gunicorn.service
 
+
+
+
 [Unit]
-Description=Gunicorn daemon for Django Project
+Description=gunicorn daemon
+Requires=gunicorn.socket
 After=network.target
 
 [Service]
-User=ubuntu  # Replace with your username
+User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/Youtu  # Path to your Django project root
-ExecStart=/home/ubuntu/Youtu/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/ubuntu/Youtu/core/core.sock youtube_manager.wsgi:application
+ExecStart=/home/ubuntu/Youtu/venv/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/gunicorn.sock \
+          youtube_manager.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
-
