@@ -1,14 +1,15 @@
-# deploy/gunicorn.service
+# Youtu.git/deploy/gunicorn.service
 
 [Unit]
-Description=gunicorn daemon
+Description=Gunicorn daemon for Django Project
 After=network.target
 
 [Service]
 User=ubuntu  # Replace with your username
 Group=www-data
-WorkingDirectory=/path/to/your/youtube_manager
-ExecStart=/path/to/your/venv/bin/gunicorn --workers 3 --bind unix:/path/to/your/youtube_manager/core/core.sock core.wsgi:application
+WorkingDirectory=/path/to/Youtu.git  # Path to your Django project root
+ExecStart=/path/to/Youtu/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/path/to/Youtu/core/core.sock core.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
+
