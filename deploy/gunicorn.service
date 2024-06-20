@@ -15,7 +15,7 @@ WorkingDirectory=/home/ubuntu/Youtu  # Path to your Django project root
 ExecStart=/home/ubuntu/Youtu/venv/bin/gunicorn \
           --access-logfile - \
           --workers 3 \
-          --bind unix:/run/gunicorn.sock \
+          --bind unix:/run/gunicorn.socket \
           youtube_manager.wsgi:application
 
 [Install]
