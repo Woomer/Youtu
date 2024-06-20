@@ -122,7 +122,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-INSTALLED_APPS += ['rest_framework', 'corsheaders', 'core', 'uploader', 'Youtube_manager']
+INSTALLED_APPS += ['rest_framework', 'corsheaders', 'core', 'Youtube_manager']
 
 MIDDLEWARE += ['corsheaders.middleware.CorsMiddleware']
 
